@@ -7,14 +7,37 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  background-color: #1A1A1A;
-  color: #FFFFFF;
+  background: linear-gradient(135deg, 
+    #ffffff 0%, 
+    #f0f8ff 25%, 
+    #e6f3ff 50%, 
+    #d1e7ff 75%, 
+    #b8d4ff 100%);
+  background-attachment: fixed;
+  color: #1A1A1A;
   line-height: 1.6;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .app {
   min-height: 100vh;
-  background-color: #1A1A1A;
+  background: transparent;
+  position: relative;
 }
 
 /* Header Styles */
@@ -23,7 +46,9 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2rem 4rem;
-  background-color: #1A1A1A;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .header-left {
@@ -35,11 +60,12 @@ body {
 .logo {
   width: 48px;
   height: 48px;
-  background-color: #666666;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .logo-icon {
@@ -51,12 +77,12 @@ body {
 .brand-name {
   font-size: 2rem;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #1A1A1A;
   margin: 0;
 }
 
 .brand-tagline {
-  color: #CCCCCC;
+  color: #6B7280;
   font-size: 0.9rem;
   margin: 0;
 }
@@ -68,31 +94,32 @@ body {
 }
 
 .nav-link {
-  color: #CCCCCC;
+  color: #6B7280;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #FFFFFF;
+  color: #1A1A1A;
 }
 
 .cta-button {
-  background-color: #000000;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .cta-button:hover {
-  background-color: #FFFFFF;
-  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 
 /* Main Content */
@@ -115,13 +142,17 @@ body {
 .headline {
   font-size: 3.5rem;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #1A1A1A;
   line-height: 1.1;
   margin: 0;
+  background: linear-gradient(135deg, #1A1A1A, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .description {
-  color: #CCCCCC;
+  color: #6B7280;
   font-size: 1.1rem;
   line-height: 1.6;
   margin: 0;
@@ -133,8 +164,8 @@ body {
 }
 
 .primary-button {
-  background-color: #FFFFFF;
-  color: #000000;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: #FFFFFF;
   border: none;
   padding: 1rem 2rem;
   border-radius: 8px;
@@ -142,26 +173,30 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .primary-button:hover {
-  background-color: #F0F0F0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 
 .secondary-button {
-  background-color: #333333;
-  color: #FFFFFF;
-  border: 1px solid #CCCCCC;
+  background: rgba(255, 255, 255, 0.8);
+  color: #1A1A1A;
+  border: 1px solid rgba(59, 130, 246, 0.3);
   padding: 1rem 2rem;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .secondary-button:hover {
-  background-color: #444444;
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
 /* Features Grid */
@@ -173,20 +208,29 @@ body {
 }
 
 .feature-card {
-  background-color: #333333;
+  background: rgba(255, 255, 255, 0.8);
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .feature-title {
-  color: #FFFFFF;
+  color: #1A1A1A;
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .feature-description {
-  color: #CCCCCC;
+  color: #6B7280;
   font-size: 0.9rem;
   margin: 0;
 }
@@ -199,12 +243,14 @@ body {
 }
 
 .extension-preview {
-  background-color: #F5F5F5;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
   padding: 1.5rem;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .extension-header {
@@ -217,11 +263,12 @@ body {
 .extension-logo {
   width: 32px;
   height: 32px;
-  background-color: #4285F4;
-  border-radius: 6px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
 }
 
 .extension-logo-icon {
@@ -231,24 +278,25 @@ body {
 }
 
 .extension-title h3 {
-  color: #000000;
+  color: #1A1A1A;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0;
 }
 
 .extension-title p {
-  color: #666666;
+  color: #6B7280;
   font-size: 0.9rem;
   margin: 0;
 }
 
 /* Misinformation Card */
 .misinformation-card {
-  background-color: #4A2A2A;
-  border-radius: 8px;
+  background: #4A2A2A;
+  border-radius: 12px;
   padding: 1.5rem;
   color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(74, 42, 42, 0.3);
 }
 
 .misinformation-header {
@@ -280,7 +328,7 @@ body {
 }
 
 .source {
-  color: #CCCCCC;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
@@ -292,7 +340,7 @@ body {
 }
 
 .flag-icon {
-  background-color: #FF4444;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
   color: #FFFFFF;
   width: 24px;
   height: 24px;
@@ -302,6 +350,7 @@ body {
   justify-content: center;
   font-size: 0.9rem;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
 }
 
 .flagged-text {
@@ -317,7 +366,7 @@ body {
 }
 
 .check-icon {
-  background-color: #00AA00;
+  background: linear-gradient(135deg, #10b981, #059669);
   color: #FFFFFF;
   width: 24px;
   height: 24px;
@@ -327,6 +376,7 @@ body {
   justify-content: center;
   font-size: 0.9rem;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
 }
 
 .real-info-title {
@@ -349,39 +399,45 @@ body {
 }
 
 .evidence-button {
-  background-color: #FFD700;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
   color: #000000;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   flex: 1;
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+  transition: all 0.3s ease;
 }
 
 .evidence-button:hover {
-  background-color: #FFC700;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.5);
 }
 
 .report-button {
-  background-color: #333333;
+  background: rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
-  border: 1px solid #CCCCCC;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   flex: 1;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .report-button:hover {
-  background-color: #444444;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .extension-footer {
-  color: #CCCCCC;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.8rem;
 }
 

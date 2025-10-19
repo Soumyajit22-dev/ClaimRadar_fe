@@ -1,5 +1,4 @@
-# ClaimRadar Landing Page
-
+# ClaimRadar Frontend
 
 
 

@@ -1,6 +1,16 @@
 import './App.css'
 
 function App() {
+  const handleDownload = () => {
+    // The zip file is in the public/downloads directory
+    const link = document.createElement('a');
+    link.href = '/downloads/claimradar-extension.zip';
+    link.download = 'claimradar-extension.zip';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="app">
       {/* Header */}
@@ -17,7 +27,7 @@ function App() {
         <nav className="header-nav">
           <a href="#features" className="nav-link">Features</a>
           <a href="#how-it-works" className="nav-link">How it works</a>
-          <a href="#download" className="nav-link">Download</a>
+          <a href="#" onClick={handleDownload} className="nav-link">Download</a>
           <button className="cta-button">Add to Chrome</button>
         </nav>
       </header>
@@ -34,7 +44,7 @@ function App() {
             ClaimRadar wraps a powerful agentic system inside a lightweight browser extension to analyze news, tweets, articles, and more — highlighting misleading or false claims and offering evidence-backed context in real time.
           </p>
           <div className="cta-buttons">
-            <button className="primary-button">Get the Extension</button>
+            <button className="primary-button" onClick={handleDownload}>Get the Extension</button>
             <button className="secondary-button">How it works</button>
           </div>
           <div className="features-grid">

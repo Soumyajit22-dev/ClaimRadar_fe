@@ -2,7 +2,7 @@ import './App.css'
 
 function App() {
   const handleDownload = () => {
-    // The zip file is in the public/downloads directory
+    // The zip file is served from public/downloads directory
     const link = document.createElement('a');
     link.href = '/downloads/claimradar-extension.zip';
     link.download = 'claimradar-extension.zip';
@@ -28,7 +28,7 @@ function App() {
           <a href="#features" className="nav-link">Features</a>
           <a href="#how-it-works" className="nav-link">How it works</a>
           <a href="#" onClick={handleDownload} className="nav-link">Download</a>
-          <button className="cta-button">Add to Chrome</button>
+          <button className="cta-button" onClick={handleDownload}>Add to Chrome</button>
         </nav>
       </header>
 
